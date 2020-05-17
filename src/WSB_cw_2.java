@@ -18,18 +18,18 @@ class WSB_cw_2 {
 		person2.setSurname("Niebo");
 				
 		System.out.println(person1.toString());
-		System.out.println(person1.sayHello());;
+		System.out.println(person1.sayHello());
 		
 		System.out.println(person2.toString());
-		System.out.println(person2.sayHello());;
+		System.out.println(person2.sayHello());
 		System.out.println();
 
 		Person boy1 = new Boy("Staœ", "Tarkowski", 14);
-		System.out.println(boy1.sayHello());;
+		System.out.println(boy1.sayHello());
 		System.out.println(boy1.toString());
 		
 		Person girl1 = new Girl("Nela", "Rawlison", 8);
-		System.out.println(girl1.sayHello());;
+		System.out.println(girl1.sayHello());
 		System.out.println(girl1.toString());
 		
 		ArrayList<Person> list = new ArrayList<>();
@@ -50,17 +50,18 @@ class WSB_cw_2 {
         Collections.sort(list, Collections.reverseOrder());
         System.out.println(list);
 
-        Comparable newPerson = new Boy("Michal", "Kolo", 9);
-        Person person5 = new Girl("Aga", "Bies", 12);
-        Person andOneMorePerson = new Student("Gosia", "Pikawa-S³oñska", 52, 2, "Politologia", false);
+        Comparable newPerson = new Person("Michal", "Kolo", 9);
+        Person girl2 = new Girl("Aga", "Bies", 12);
+        Person boy2 = new Boy("Mateusz", "S³onik", 5);
 
-/* tworz¹c obiekty klas dziedzicz¹cych i zapisuj¹c ich w zmiennej klasy bazowej, zawsze zostanie wywo³ana metoda toString
-z klasy dziedzicz¹cej
-*/
 
         System.out.println(newPerson.toString());
-        System.out.println(andAnotherPerson.toString());
-        System.out.println(andOneMorePerson.toString());
+        
+        System.out.println(girl2.sayHello());
+        System.out.println(girl2.toString());
+        
+        System.out.println(boy2.sayHello());
+        System.out.println(boy2.toString());
 
     }
 
@@ -68,7 +69,7 @@ z klasy dziedzicz¹cej
 		
 
 	}
-}
+
 
 class Person {
 	private int age;
@@ -126,7 +127,9 @@ class Girl extends Person {
 
 	Girl(String name, String surname, int age) {
 		super(name, surname, age);
+		System.out.println("Klasa dziedzicz¹ca Girl");
 	}
+	
 
 	public String toString() {
 		return "Objekt klasy: " + this.getClass().getSimpleName();
@@ -143,6 +146,7 @@ class Boy extends Person {
 
 	Boy(String name, String surname, int age) {
 		super(name, surname, age);
+		System.out.println("Klasa dziedzicz¹ca Boy");
 	}
 	
 	public String toString() {
