@@ -46,7 +46,7 @@ class WSB_cw_2 {
         list.add(person3);
         list.add(person4);
         
-        //sortowanie rosn¹ce
+        System.out.println("-- Sortowanie rosn¹ce");
 
         Collections.sort(list);
         for (Object person : list) {
@@ -54,10 +54,12 @@ class WSB_cw_2 {
         }
 
         
-        //sortowanie malej¹ce
-        
+        System.out.println("-- Sortowanie malej¹ce");
         Collections.sort(list, Collections.reverseOrder());
-        System.out.println(list);
+        Collections.sort(list);
+        for (Object person : list) {
+            System.out.println(person);
+        }
 
         Person newPerson = new Person("Michal", "Kolo", 9);
         Person girl2 = new Girl("Aga", "Bies", 12);
