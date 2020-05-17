@@ -9,6 +9,8 @@ class WSB_cw_2 {
 		Person person3 = new Person("Zosia", "Ptak", 12);
 		Person person4 = new Person("Piotr", "Kot", 3);
 		
+		
+		
 		person1.setAge(8);
 		person1.setName("Krzys");
 		person1.setSurname("Krzak");
@@ -24,14 +26,18 @@ class WSB_cw_2 {
 		System.out.println(person2.sayHello());
 		System.out.println();
 
-		Person boy1 = new Boy("Staœ", "Tarkowski", 14);
+		
+		//Wywo³any jest konstruktor klasy bazowej, a pó¿niej dziedzicz¹cej
+		Boy boy1 = new Boy("Staœ", "Tarkowski", 14);
 		System.out.println(boy1.sayHello());
 		System.out.println(boy1.toString());
 		
-		Person girl1 = new Girl("Nela", "Rawlison", 8);
+		Girl girl1 = new Girl("Nela", "Rawlison", 8);
 		System.out.println(girl1.sayHello());
 		System.out.println(girl1.toString());
+
 		
+		System.out.println("---- Sortowanie ----");
 		ArrayList<Person> list = new ArrayList<>();
 
 				
@@ -39,18 +45,21 @@ class WSB_cw_2 {
         list.add(person2);
         list.add(person3);
         list.add(person4);
-
+        
         //sortowanie rosn¹ce
 
         Collections.sort(list);
-        System.out.println(list);
+        for (Object person : list) {
+            System.out.println(person);
+        }
+
         
         //sortowanie malej¹ce
         
         Collections.sort(list, Collections.reverseOrder());
         System.out.println(list);
 
-        Comparable newPerson = new Person("Michal", "Kolo", 9);
+        Person newPerson = new Person("Michal", "Kolo", 9);
         Person girl2 = new Girl("Aga", "Bies", 12);
         Person boy2 = new Boy("Mateusz", "S³onik", 5);
 
@@ -62,6 +71,8 @@ class WSB_cw_2 {
         
         System.out.println(boy2.sayHello());
         System.out.println(boy2.toString());
+        
+        
 
     }
 
@@ -71,7 +82,7 @@ class WSB_cw_2 {
 	}
 
 
-class Person {
+class Person implements Comparable<Person> {
 	private int age;
 	private String personName;
 	private String personSurname;
@@ -80,7 +91,7 @@ class Person {
 		personName = name;
 		personSurname = surname;
 		this.age = age;
-		System.out.println("Konstruktor klasy bazowej");
+		System.out.println("Konstruktor klasy bazowej Person");
 	}
 
 	public void setName(String newName) {
@@ -115,11 +126,22 @@ class Person {
 	public String toString() {
 		return "Objekt klasy: " + this.getClass().getSimpleName();
 	}
+
+	@Override
+	public int compareTo(Person p) {
+		//return (this.getAge()).compareTo( p.getAge());
+	if (this.age >= p.age) {
+		return 1;
+	}else if(this.age < p.age) {
+		return -1;
+	}else {
+		return 0;
+	}
 	
-	public int compareTo(Person o) 
-    {
-        return this.getAge().compareTo( o.getAge() );
-    }
+	
+	}
+	
+
 
 }
 
